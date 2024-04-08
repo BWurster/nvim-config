@@ -3,7 +3,7 @@ return {
 	version = "*",
 	config = function()
 		require("toggleterm").setup({
-			open_mapping = [[<c-`>]],
+			open_mapping = [[<c-t>]],
 			hide_numbers = true,
 			shade_filetypes = {},
 			shade_terminals = true,
@@ -28,13 +28,10 @@ return {
 			cmd = "lazygit",
 			dir = "git_dir",
 			direction = "float",
-			float_opts = {
-				border = "double",
-			},
 			-- function to run on opening the terminal
 			on_open = function(term)
 				vim.cmd("startinsert!")
-				vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+				vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { desc = "Close terminal", noremap = true, silent = true })
 			end,
 			-- function to run on closing the terminal
 			on_close = function(term)
@@ -46,6 +43,6 @@ return {
 			lazygit:toggle()
 		end
 
-		vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>lua _lazygit_toggle()<CR>", { desc = "lazygit", noremap = true, silent = true })
 	end,
 }
