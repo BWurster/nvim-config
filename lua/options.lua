@@ -1,14 +1,31 @@
 -- set up tab operations
-vim.o.expandtab = true -- Set expandtab (replace tab characters with spaces)
-vim.o.tabstop = 4 -- Set tabstop (number of spaces that a <Tab> in the file counts for)
-vim.o.softtabstop = 4 -- Set softtabstop (number of spaces to use for each step of (auto)indent)
-vim.o.shiftwidth = 4 -- Set shiftwidth (number of spaces used for each step of autoindent)
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.smartindent = true -- Insert indents automatically
-vim.o.mouse = "a"
-vim.o.pumheight = 10 -- Maximum number of entries in popup menu
+local opt = vim.opt
+opt.expandtab = true -- Set expandtab (replace tab characters with spaces)
+opt.tabstop = 4 -- Set tabstop (number of spaces that a <Tab> in the file counts for)
+opt.softtabstop = 4 -- Set softtabstop (number of spaces to use for each step of (auto)indent)
+opt.shiftwidth = 4 -- Set shiftwidth (number of spaces used for each step of autoindent)
+opt.number = true
+opt.relativenumber = true
+opt.smartindent = true -- Insert indents automatically
+opt.mouse = "a"
+opt.pumheight = 10 -- Maximum number of entries in popup menu
+opt.cursorline = true -- Enable highlighting of the current line
+opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each 22:52
+opt.splitbelow = true -- Put new windows below current
+opt.splitkeep = "screen"
+opt.splitright = true -- Put new windows right of current
+opt.scrolloff = 8 -- Minimum number of screen lines to keep above and below the cursor
 vim.g.mapleader = " "
+
+if not vim.env.SSH_TTY then
+  -- only set clipboard if not in ssh, to make sure the OSC 52
+  -- integration works automatically. Requires Neovim >= 0.10.0
+  opt.clipboard = "unnamedplus" -- Sync with system clipboard
+end
+
+if vim.fn.has("nvim-0.10") == 1 then
+  opt.smoothscroll = true
+end
 
 vim.g.root_spec = { "lsp", { ".git" }, "cwd" }
 
