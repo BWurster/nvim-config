@@ -10,4 +10,14 @@ return {
 	config = function()
 		vim.keymap.set("n", "<leader>fe", ":Neotree toggle<CR>", { desc = "File Explorer" })
 	end,
+	config = function()
+		require("neo-tree").setup({
+			filesystem = {
+				filtered_items = {
+					visible = true,
+					hide_dotfiles = false,
+				},
+			},
+		})
+	end,
 }
