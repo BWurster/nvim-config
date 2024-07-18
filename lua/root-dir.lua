@@ -13,9 +13,6 @@ if #args > 2 then
     else
         root_dir = vim.fn.fnamemodify(arg_path, ":p:h")
     end
-else
-    root_dir = vim.fn.getcwd()
-end
 
--- set cwd to root_dir
-vim.cmd("cd " .. root_dir)
+    vim.cmd("cd " .. root_dir)
+end
