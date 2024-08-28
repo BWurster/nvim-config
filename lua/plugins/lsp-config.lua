@@ -13,7 +13,6 @@ return {
                     "lua_ls",
                     "tsserver",
                     "pyright",
-                    "rust_analyzer",
                     "gopls",
                     "clangd",
                     "html",
@@ -38,12 +37,6 @@ return {
             }
             lspconfig.pyright.setup {
                 capabilities = capabilities
-            }
-            lspconfig.rust_analyzer.setup {
-                capabilities = capabilities,
-                settings = {
-                    ['rust-analyzer'] = {},
-                },
             }
             lspconfig.gopls.setup {
                 capabilities = capabilities
