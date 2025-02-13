@@ -13,7 +13,6 @@ return {
                     "lua_ls",
                     "tsserver",
                     "pyright",
-                    "gopls",
                     "clangd",
                     "html",
                     "cmake",
@@ -36,9 +35,6 @@ return {
                 capabilities = capabilities
             }
             lspconfig.pyright.setup {
-                capabilities = capabilities
-            }
-            lspconfig.gopls.setup {
                 capabilities = capabilities
             }
             lspconfig.clangd.setup {

@@ -15,5 +15,3 @@ require("root-dir")
 require("options")
 require("lazy").setup("plugins")
 
-
-
