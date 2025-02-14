@@ -15,3 +15,19 @@ require("root-dir")
 require("options")
 require("lazy").setup("plugins")
 
+vim.api.nvim_create_autocmd("InsertEnter", {
+    pattern = "*",
+    callback = function()
+        vim.opt.relativenumber = false
+        vim.opt.number = true
+    end,
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+    pattern = "*",
+    callback = function()
+        vim.opt.relativenumber = true
+        vim.opt.number = true
+    end,
+})
+
