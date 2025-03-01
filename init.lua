@@ -15,6 +15,7 @@ require("root-dir")
 require("options")
 require("lazy").setup("plugins")
 
+-- absolute line numbers in insert more
 vim.api.nvim_create_autocmd("InsertEnter", {
     pattern = "*",
     callback = function()
@@ -23,11 +24,27 @@ vim.api.nvim_create_autocmd("InsertEnter", {
     end,
 })
 
+-- relative line numbers in normal mode
 vim.api.nvim_create_autocmd("InsertLeave", {
     pattern = "*",
     callback = function()
         vim.opt.relativenumber = true
         vim.opt.number = true
     end,
+})
+
+
+-- limit viewable file size
+local max_filesize = 1024 * 1024 * 5 -- 5MB limit (adjust as needed)
+
+vim.api.nvim_create_autocmd("BufReadPre", {
+  callback = function(args)
+    local filepath = vim.fn.expand("<afile>")
+    local size = vim.fn.getfsize(filepath)
+    if size > max_filesize then
+      vim.cmd("echohl WarningMsg | echo 'File too large! Not opening.' | echohl None")
+      vim.cmd("bwipeout " .. args.buf) -- Close the buffer
+    end
+  end,
 })
 
