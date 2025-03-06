@@ -9,17 +9,19 @@ return {
 	},
 	config = function()
 		require("neo-tree").setup({
-            close_if_last_window = true,
-            window = {
-                mappings = {
-                    ["<space>"] = "none",
-                },
-            },
+			close_if_last_window = true,
+			window = {
+				mappings = {
+					["<space>"] = "none",
+				},
+			},
 			filesystem = {
 				filtered_items = {
 					visible = true,
 					hide_dotfiles = false,
 				},
+				follow_current_file = true, -- Keep the current file in focus
+				use_libuv_file_watcher = true, -- Automatically detect changes
 			},
 		})
 		vim.keymap.set("n", "<leader>fe", ":Neotree toggle<CR>", { desc = "File Explorer" })
