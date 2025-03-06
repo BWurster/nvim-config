@@ -48,3 +48,8 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   end,
 })
 
+-- save after leaving insert mode
+vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged"}, {
+    pattern = "*",
+    command = "silent! w"
+})
