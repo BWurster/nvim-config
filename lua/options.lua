@@ -5,7 +5,6 @@ opt.tabstop = 4 -- Set tabstop (number of spaces that a <Tab> in the file counts
 opt.softtabstop = 4 -- Set softtabstop (number of spaces to use for each step of (auto)indent)
 opt.shiftwidth = 4 -- Set shiftwidth (number of spaces used for each step of autoindent)
 opt.number = true
-opt.relativenumber = true
 opt.smartindent = true -- Insert indents automatically
 opt.mouse = "a"
 opt.pumheight = 10 -- Maximum number of entries in popup menu
