@@ -10,7 +10,7 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "lua_ls", "pyright", "clangd", "html", "cmake", 
+                    "lua_ls", "pyright", "clangd", "html", "cmake",
                     "cssls", "cssmodules_ls", "arduino_language_server"
                 }
             })
@@ -24,7 +24,7 @@ return {
             
             -- 2. List the servers you want to configure
             local servers = {
-                "lua_ls", "pyright", "clangd", "html", "cmake", 
+                "lua_ls", "pyright", "clangd", "html", "cmake",
                 "cssls", "cssmodules_ls", "arduino_language_server"
             }
 
